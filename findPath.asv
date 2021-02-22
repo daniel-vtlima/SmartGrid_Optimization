@@ -1,0 +1,23 @@
+function [path] = findPath(wup, wdown)
+
+[rows, cols] = size(wup);
+pos = zeros(rows-1, 12);
+r = [];
+
+for i=1:rows
+    for j=1:12
+        if(wup(i,j) ~= 0)
+            pos(i,j) = i;
+        end
+    end
+end
+
+for i=1:pop_size
+    for i=1:12
+        aux = unique(pos(:, i));
+        rp = randi([2 length(aux)],1,1);
+        r = [r; aux(rp)];
+    end
+end
+
+end
